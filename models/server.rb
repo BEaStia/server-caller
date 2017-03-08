@@ -1,3 +1,3 @@
+class Server < Sequel::Model
 
-class Server
 end

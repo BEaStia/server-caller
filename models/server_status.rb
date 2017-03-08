@@ -1,3 +1,2 @@
-
-class ServerStatus
+class ServerStatus < Sequel::Model
 end
