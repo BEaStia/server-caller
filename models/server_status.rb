@@ -1,0 +1,3 @@
+
+class ServerStatus
+end
