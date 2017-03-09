@@ -11,8 +11,7 @@ class Caller
   end
 
   def ping
-    result = Net::Ping::ICMP.new(@server[:address])
-    result.ping?
+    result = Net::Ping::HTTP.new(@server[:address])
     status = ServerStatus.new(server: @server.id, available: result.ping?, time: Time.now)
     status.duration = result.duration if result.ping?
     status.save

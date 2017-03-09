@@ -33,7 +33,6 @@ class Application
   def check_servers
 
     Server.each do |server|
-      p "checking"
       check_server(Caller.new(server))
     end
   end
@@ -41,9 +40,7 @@ class Application
   def check_server(caller)
     Concurrent::ScheduledTask.execute(5) do
       unless @servers_to_delete.include?(caller.server[:address])
-        p "checking #{caller.server[:address]}"
-        #caller.async.ping
-        caller.ping
+        caller.async.ping
         check_server(caller)
       end
     end
